@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+
+    
+    <script>
+        function brewCoffee(cups) {
+            // Added semicolon 
+            return cups * 12;
+        }
+
+        console.log("Brewing coffee:", brewCoffee(2));
+    </script>
+
+    
+    <script>
+        function calculateTotal(price, tipPercentage) {
+            // Changed '=' to '==' for logical comparison 
+            if (tipPercentage == 0) {
+                return price;
+            } else {
+                return price + (price * tipPercentage / 100);
+            }
+        }
+
+        console.log("Total bill with tip:", calculateTotal(5, 15));
+    </script>
+
+    
+    <script>
+        function findStrongestCoffee(coffees) {
+            let strongestCoffee = coffees[0];
+            for (let i = 0; i < coffees.length; i++) {
+                // coffees[i].caffeine > strongestCoffee to coffees[i].caffeine > strongestCoffee.caffeine to direclty compare caffeine content 
+                if (coffees[i].caffeine > strongestCoffee.caffeine) {
+                    strongestCoffee = coffees[i];
+                }
+            }
+            return strongestCoffee;
+        }
+
+        const coffeeList = [
+            { name: "Espresso", caffeine: 100 },
+            { name: "Latte", caffeine: 80 },
+            { name: "Cappuccino", caffeine: 120 }
+        ];
+
+        console.log("Strongest coffee:", findStrongestCoffee(coffeeList));
+    </script>
+
+    
+    <script>
+        function mergeCoffeeOrders(order1, order2) {
+            let mergedOrders = [];
+            let i = j = 0;
+
+            while (i < order1.length && j < order2.length) {
+                if (order1[i].price < order2[j].price) {
+                    // Changed () to [] for indexing 
+                    mergedOrders.push(order1[i]);
+                    i++;
+                } else if (order1[i].price == order2[j].price) {
+                    mergedOrders.push(order1[i]);
+                    mergedOrders.push(order2[j]);
+                    i++;
+                    j++;
+                } else {
+                    mergedOrders.push(order2[j]);
+                    j++;
+                }
+            }
+
+            mergedOrders = mergedOrders.concat(order1.slice(i));
+            mergedOrders = mergedOrders.concat(order2.slice(j));
+
+            return mergedOrders;
+        }
+
+        const order1 = [{ name: "Americano", price: 5 }, { name: "Latte", price: 7 }];
+        const order2 = [{ name: "Espresso", price: 4 }, { name: "Mocha", price: 6 }];
+
+        console.log("Merged coffee orders:", mergeCoffeeOrders(order1, order2));
+    </script>
+
+    
+    <script>
+        // Remove first else if statement because keeping "&&" does not make sense since bean1 cannot be both bigger and smaller than bean2
+        // and changing to "||" leads to getting stuck in the while loop when bean1 + bean2 != 100 
+        function perfectCoffeeRecipe(beans1, beans2) {
+            let totalWeight = 0;
+            while (totalWeight !== 100) {
+                if (beans1 + beans2 === 100) {
+                    totalWeight = beans1 + beans2;
+                } else if ((beans1 + beans2 < 50) || (beans1 + beans2 > 150)) {
+                    return ("Recipe out of range!");
+                } else {
+                    totalWeight = beans1 - beans2;
+                }
+            }
+            return ("Perfect recipe achieved!");
+        }
+
+        console.log(perfectCoffeeRecipe(30, 70));
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<script>
+
+// Task 1
+function quattro(){
+    for(i=0; i<4; i++){
+        // Generate radom integer between 0 and 9 
+        num = Math.floor(Math.random() * 10);
+        if((num + 6) % 4 === 0){
+            console.log('Quattro');
+        }else{
+            console.log('Flat',num);
+        }
+    }
+}
+
+
+// Task 2 
+function auto_to_coffee(){
+    images = document.querySelectorAll('.product-image-container');
+    for(i=0; i<images.length;i++){
+        images[i].setAttribute('style','background-image: url("https://commonwealthjoe.com/cdn/shop/files/cwj-logo-mark-vector-02_300x.png?v=1614238016")');
+    }
+}
+
+
+// Task 3
+function nation_information(nation){
+    // Create custom URL based on user-inputted nation 
+    url = 'https://restcountries.com/v3.1/name/' + nation;
+
+    // Get request 
+    const request = new XMLHttpRequest();
+    request.open( "GET", url, false); 
+    request.send();
+
+    // Retrieve and print data 
+    data = JSON.parse(request.responseText)[0];
+    console.log('Population:', response['population']); 
+    console.log('Capital City:', response['capital'][0]);
+    console.log('Languages Spoken:', response['languages']);
+}
+
+</script>
+
+

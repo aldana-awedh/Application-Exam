@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function validateForm() {
+            email = document.querySelector('.email-input-text').value;
+            password = document.querySelector('.password-input-text').value;
+            if(email == 'bobby.rahal@nascar.com' & password == '$peed1sKing'){
+                alert('SUCCESS');
+            }else{
+                alert('Wrong credentials');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="form-email">
+        <label for="staticEmail" class="email-form-label">Email</label>
+        <div class="email_input">
+          <input type="text" class="email-input-text" id="staticEmail" value="example@gmail.com">
+        </div>
+    </div>
+    <div class="form-password">
+        <label for="inputPassword" class="password-form-label">Password</label>
+        <div class="password_input">
+          <input type="password" class="password-input-text" id="inputPassword">
+        </div>
+    </div>
+    <div class="form_login">
+        <button class="btn btn-primary" type="submit" onclick="validateForm()">Login</button>
+    </div>
+    <div class="form-forgot-password">
+        <p><a class="link-opacity-50-hover" href="#">Forgot Password?</a></p>
+    </div>
+    
+</body>
+</html>
